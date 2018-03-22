@@ -26,3 +26,5 @@ struct StorageDescriptor {
   12: optional bool   storedAsSubDirectories       // stored as subdirectories or not
 }
 ```
+
+* 每个查询都是 绑定在 beeswax.QueryHandle
