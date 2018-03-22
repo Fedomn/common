@@ -17,11 +17,21 @@ type State struct {
 	Error error
 }
 
+func (s *State) string() string {
+	return fmt.Sprintf("QueryState: %s, Error: %s", s.state, s.Error)
+}
+
 func (s *State) IsSuccess() bool {
+	if s.Error != nil {
+		return false
+	}
 	return *s.state != beeswax.QueryState_EXCEPTION
 }
 
 func (s *State) IsComplete() bool {
+	if s.Error != nil {
+		return false
+	}
 	return *s.state == beeswax.QueryState_FINISHED
 }
 
@@ -93,7 +103,7 @@ func (r *Rows) CheckSuccess() error {
 			return err
 		}
 		if !state.IsSuccess() {
-			return fmt.Errorf("state: %s, not success", state.state)
+			return fmt.Errorf("state: %s, not success", state)
 		}
 	}
 	return nil
@@ -216,6 +226,16 @@ func (r *Rows) FetchAll() []map[string]interface{} {
 		data = append(data, row)
 	}
 	return data
+}
+
+// Cancel execution of query. Returns RUNTIME_ERROR if query_id unknown.
+// This terminates all threads running on behalf of this query at
+// all nodes that were involved in the execution.
+// Throws BeeswaxException if the query handle is invalid (this doesn't
+// necessarily indicate an error: the query might have finished).
+func (r *Rows) Cancel() error {
+	_, err := r.client.Cancel(context.Background(), r.handle)
+	return err
 }
 
 func newRows(client *impalaservice.ImpalaServiceClient, handle *beeswax.QueryHandle) *Rows {

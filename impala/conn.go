@@ -10,7 +10,6 @@ import (
 
 type Conn struct {
 	client    *impalaservice.ImpalaServiceClient
-	handle    *beeswax.QueryHandle
 	transport thrift.TTransport
 }
 
@@ -33,23 +32,19 @@ func NewConn(host string, port int) (*Conn, error) {
 	}
 
 	client := impalaservice.NewImpalaServiceClientFactory(transport, protocolFactory)
-	return &Conn{client, nil, transport}, nil
+	return &Conn{client, transport}, nil
 }
 
-func (c *Conn) isOpen() bool {
-	return c.client != nil
+func (c *Conn) IsOpen() bool {
+	return c.transport.IsOpen()
 }
 
 func (c *Conn) Close() error {
-	if c.isOpen() {
-		if c.handle != nil {
-			_, err := c.client.Cancel(context.Background(), c.handle)
-			if err != nil {
-				return err
-			}
-			c.handle = nil
+	if c.IsOpen() {
+		err := c.transport.Close()
+		if err != nil {
+			return err
 		}
-		c.transport.Close()
 		c.client = nil
 	}
 	return nil
