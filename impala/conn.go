@@ -46,6 +46,7 @@ func (c *Conn) Close() error {
 			return err
 		}
 		c.client = nil
+		c.transport = nil
 	}
 	return nil
 }
