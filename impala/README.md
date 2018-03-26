@@ -28,3 +28,5 @@ struct StorageDescriptor {
 ```
 
 * 每个查询都是 绑定在 beeswax.QueryHandle
+
+* pool 文档参考[go-commons-pool](https://github.com/jolestar/go-commons-pool) [Apache common-pool](http://shift-alt-ctrl.iteye.com/blog/1917782)
