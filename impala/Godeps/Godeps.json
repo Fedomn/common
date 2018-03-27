@@ -1,0 +1,27 @@
+{
+	"ImportPath": "fedomn/common/impala",
+	"GoVersion": "go1.9",
+	"GodepVersion": "v79",
+	"Deps": [
+		{
+			"ImportPath": "git.apache.org/thrift.git/lib/go/thrift",
+			"Comment": "hier-1562-g9aaf2958",
+			"Rev": "9aaf295806d32eab5715b4f0681f7da9b64c1fa5"
+		},
+		{
+			"ImportPath": "github.com/jolestar/go-commons-pool",
+			"Comment": "v1.1.2",
+			"Rev": "2bda2d8f3bdf571db901f02378e92edd916380fa"
+		},
+		{
+			"ImportPath": "github.com/jolestar/go-commons-pool/collections",
+			"Comment": "v1.1.2",
+			"Rev": "2bda2d8f3bdf571db901f02378e92edd916380fa"
+		},
+		{
+			"ImportPath": "github.com/jolestar/go-commons-pool/concurrent",
+			"Comment": "v1.1.2",
+			"Rev": "2bda2d8f3bdf571db901f02378e92edd916380fa"
+		}
+	]
+}
