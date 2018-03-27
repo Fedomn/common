@@ -12,7 +12,7 @@ var p *pool.ObjectPool
 
 func TestMain(m *testing.M) {
 	cfg := PoolConfig{
-		Host:                          "120.27.220.47",
+		Host:                          "127.0.0.1",
 		Port:                          21000,
 		MaxTotal:                      2,
 		MaxIdle:                       1,
