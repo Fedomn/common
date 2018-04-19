@@ -67,4 +67,17 @@ func TestKnapsack01(t *testing.T) {
 		}
 	}
 	fmt.Println(dp[itemsCount][capacity]) // 40
+
+	// 求最大价值时选择的方案 即找的是 元素的组合
+	i := itemsCount
+	c := capacity
+	for i > 0 && c > 0 {
+		if dp[i][c] != dp[i-1][c] {
+			fmt.Printf("第%d个物品，空间：%d，价值：%d\n", i, items[i].Weight, items[i].Value)
+			c -= items[i].Weight
+		}
+		i--
+	}
+	// 第4个物品，空间：6，价值：22
+	// 第3个物品，空间：5，价值：18
 }
