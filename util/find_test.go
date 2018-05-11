@@ -23,3 +23,26 @@ func TestContains(t *testing.T) {
 		Equals(t, fmt.Sprintf("source: %+v", tt.source), tt.wat, got)
 	}
 }
+
+func TestContainsBy(t *testing.T) {
+	var disTest = []struct {
+		source    interface{}
+		wat       bool
+		validator func(interface{}) bool
+	}{
+		{[]string{"1", "2", "3"}, true, func(val interface{}) bool {
+			return val.(string) == "3"
+		}},
+		{[]int{1, 2, 3}, false, func(val interface{}) bool {
+			return val.(int) == 0
+		}},
+		{1, false, func(val interface{}) bool {
+			return false
+		}},
+	}
+
+	for _, tt := range disTest {
+		got := ContainsBy(tt.source, tt.validator)
+		Equals(t, fmt.Sprintf("source: %+v", tt.source), tt.wat, got)
+	}
+}
