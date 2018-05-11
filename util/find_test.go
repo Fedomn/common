@@ -46,3 +46,30 @@ func TestContainsBy(t *testing.T) {
 		Equals(t, fmt.Sprintf("source: %+v", tt.source), tt.wat, got)
 	}
 }
+
+func TestFindBy(t *testing.T) {
+	var disTest = []struct {
+		source    interface{}
+		wat       interface{}
+		validator func(interface{}) bool
+	}{
+		{[]string{"1", "2", "3"}, "3", func(val interface{}) bool {
+			return val.(string) == "3"
+		}},
+		{[]int{1, 2, 3}, nil, func(val interface{}) bool {
+			return val.(int) == 0
+		}},
+		{1, fmt.Errorf("parameter 1 must be a slice"), func(val interface{}) bool {
+			return false
+		}},
+	}
+
+	for _, tt := range disTest {
+		got, err := FindBy(tt.source, tt.validator)
+		if err != nil {
+			Equals(t, fmt.Sprintf("source: %+v", tt.source), tt.wat, err)
+		} else {
+			Equals(t, fmt.Sprintf("source: %+v", tt.source), tt.wat, got)
+		}
+	}
+}

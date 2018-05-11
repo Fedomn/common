@@ -1,6 +1,9 @@
 package util
 
-import "reflect"
+import (
+	"fmt"
+	"reflect"
+)
 
 type validator func(interface{}) bool
 
@@ -32,4 +35,19 @@ func ContainsBy(source interface{}, fn validator) bool {
 		}
 	}
 	return false
+}
+
+func FindBy(source interface{}, fn validator) (interface{}, error) {
+	sliceVal := reflect.ValueOf(source)
+	if sliceVal.Type().Kind() != reflect.Slice {
+		return nil, fmt.Errorf("parameter 1 must be a slice")
+	}
+
+	for i := 0; i < sliceVal.Len(); i++ {
+		val := sliceVal.Index(i).Interface()
+		if match := fn(val); match == true {
+			return val, nil
+		}
+	}
+	return nil, nil
 }
