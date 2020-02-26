@@ -6,10 +6,11 @@ package hive_metastore
 import (
 	"bytes"
 	"context"
-	"fedomn/common/impala/gen-go/fb303"
 	"fmt"
-	"git.apache.org/thrift.git/lib/go/thrift"
 	"reflect"
+
+	"git.apache.org/thrift.git/lib/go/thrift"
+	"github.com/fedomn/common/impala/gen-go/fb303"
 )
 
 // (needed to ensure safety because of naive import list construction.)

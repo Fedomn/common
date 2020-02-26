@@ -2,9 +2,11 @@ package impala
 
 import (
 	"context"
-	"fedomn/common/impala/gen-go/beeswax"
-	"fedomn/common/impala/gen-go/impalaservice"
 	"fmt"
+
+	"github.com/fedomn/common/impala/gen-go/beeswax"
+	"github.com/fedomn/common/impala/gen-go/impalaservice"
+
 	"git.apache.org/thrift.git/lib/go/thrift"
 )
 

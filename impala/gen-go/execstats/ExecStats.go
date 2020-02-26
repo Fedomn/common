@@ -8,11 +8,12 @@ import (
 	"context"
 	"database/sql/driver"
 	"errors"
-	"fedomn/common/impala/gen-go/status"
-	"fedomn/common/impala/gen-go/types"
 	"fmt"
-	"git.apache.org/thrift.git/lib/go/thrift"
 	"reflect"
+
+	"git.apache.org/thrift.git/lib/go/thrift"
+	"github.com/fedomn/common/impala/gen-go/status"
+	"github.com/fedomn/common/impala/gen-go/types"
 )
 
 // (needed to ensure safety because of naive import list construction.)

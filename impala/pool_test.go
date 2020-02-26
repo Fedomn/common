@@ -1,11 +1,12 @@
 package impala_test
 
 import (
-	. "fedomn/common/impala"
 	"fmt"
-	"github.com/jolestar/go-commons-pool"
 	"testing"
 	"time"
+
+	. "github.com/fedomn/common/impala"
+	"github.com/jolestar/go-commons-pool"
 )
 
 var p *pool.ObjectPool

@@ -3,13 +3,14 @@ package impala
 import (
 	"context"
 	"errors"
-	"fedomn/common/impala/gen-go/beeswax"
-	"fedomn/common/impala/gen-go/impalaservice"
 	"fmt"
 	"log"
 	"strconv"
 	"strings"
 	"time"
+
+	"github.com/fedomn/common/impala/gen-go/beeswax"
+	"github.com/fedomn/common/impala/gen-go/impalaservice"
 )
 
 type State struct {

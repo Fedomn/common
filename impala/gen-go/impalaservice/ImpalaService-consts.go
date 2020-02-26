@@ -6,14 +6,15 @@ package impalaservice
 import (
 	"bytes"
 	"context"
-	"fedomn/common/impala/gen-go/beeswax"
-	"fedomn/common/impala/gen-go/execstats"
-	"fedomn/common/impala/gen-go/status"
-	"fedomn/common/impala/gen-go/tcliservice"
-	"fedomn/common/impala/gen-go/types"
 	"fmt"
-	"git.apache.org/thrift.git/lib/go/thrift"
 	"reflect"
+
+	"git.apache.org/thrift.git/lib/go/thrift"
+	"github.com/fedomn/common/impala/gen-go/beeswax"
+	"github.com/fedomn/common/impala/gen-go/execstats"
+	"github.com/fedomn/common/impala/gen-go/status"
+	"github.com/fedomn/common/impala/gen-go/tcliservice"
+	"github.com/fedomn/common/impala/gen-go/types"
 )
 
 // (needed to ensure safety because of naive import list construction.)

@@ -5,17 +5,18 @@ package main
 
 import (
 	"context"
-	"fedomn/common/impala/gen-go/beeswax"
-	"fedomn/common/impala/gen-go/hive_metastore"
 	"flag"
 	"fmt"
-	"git.apache.org/thrift.git/lib/go/thrift"
 	"math"
 	"net"
 	"net/url"
 	"os"
 	"strconv"
 	"strings"
+
+	"git.apache.org/thrift.git/lib/go/thrift"
+	"github.com/fedomn/common/impala/gen-go/beeswax"
+	"github.com/fedomn/common/impala/gen-go/hive_metastore"
 )
 
 var _ = hive_metastore.GoUnusedProtection__

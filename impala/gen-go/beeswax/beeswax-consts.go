@@ -6,10 +6,11 @@ package beeswax
 import (
 	"bytes"
 	"context"
-	"fedomn/common/impala/gen-go/hive_metastore"
 	"fmt"
-	"git.apache.org/thrift.git/lib/go/thrift"
 	"reflect"
+
+	"git.apache.org/thrift.git/lib/go/thrift"
+	"github.com/fedomn/common/impala/gen-go/hive_metastore"
 )
 
 // (needed to ensure safety because of naive import list construction.)

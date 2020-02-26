@@ -5,21 +5,22 @@ package main
 
 import (
 	"context"
-	"fedomn/common/impala/gen-go/beeswax"
-	"fedomn/common/impala/gen-go/execstats"
-	"fedomn/common/impala/gen-go/impalaservice"
-	"fedomn/common/impala/gen-go/status"
-	"fedomn/common/impala/gen-go/tcliservice"
-	"fedomn/common/impala/gen-go/types"
 	"flag"
 	"fmt"
-	"git.apache.org/thrift.git/lib/go/thrift"
 	"math"
 	"net"
 	"net/url"
 	"os"
 	"strconv"
 	"strings"
+
+	"git.apache.org/thrift.git/lib/go/thrift"
+	"github.com/fedomn/common/impala/gen-go/beeswax"
+	"github.com/fedomn/common/impala/gen-go/execstats"
+	"github.com/fedomn/common/impala/gen-go/impalaservice"
+	"github.com/fedomn/common/impala/gen-go/status"
+	"github.com/fedomn/common/impala/gen-go/tcliservice"
+	"github.com/fedomn/common/impala/gen-go/types"
 )
 
 var _ = execstats.GoUnusedProtection__

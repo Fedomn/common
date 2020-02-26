@@ -2,6 +2,7 @@ package impala
 
 import (
 	"fmt"
+
 	"github.com/jolestar/go-commons-pool"
 )
 

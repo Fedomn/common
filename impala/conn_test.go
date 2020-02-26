@@ -1,9 +1,10 @@
 package impala_test
 
 import (
-	. "fedomn/common/impala"
 	"log"
 	"testing"
+
+	. "github.com/fedomn/common/impala"
 )
 
 func TestNewConn(t *testing.T) {

@@ -1,10 +1,11 @@
 package util_test
 
 import (
-	. "fedomn/common/testing"
-	. "fedomn/common/util"
 	"fmt"
 	"testing"
+
+	. "github.com/fedomn/common/testing"
+	. "github.com/fedomn/common/util"
 )
 
 func TestContains(t *testing.T) {
